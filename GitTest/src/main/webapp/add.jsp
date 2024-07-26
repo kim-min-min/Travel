@@ -53,7 +53,7 @@
         <div class="header-inner">
               <div class="group-parent">
                   
-                    <div class="group-item">
+                    <div class="group-item" onclick="window.location.href='Basket.jsp'">
                       <img class="group-child2" alt="" src="image/bucket2.png">
                      <img class="group-child" alt="" src="image/bucket1.png">
                     </div>

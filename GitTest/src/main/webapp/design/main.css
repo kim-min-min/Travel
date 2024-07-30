@@ -328,12 +328,13 @@
     max-width: 100%;
   }
   .date-input{
-  	padding:0 15px;
-  	border-radius:5%;
+  	margin:0 15px;
   	border-style:solid;
   	color:gray;
   	font-size:14px;
   	font-family: system-ui;
+  	width:250px;
+  	padding:0px 10px;	
   }
   .destination {
     position: relative;

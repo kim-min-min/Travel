@@ -5,6 +5,7 @@ public class WebMember {
 	public String pw;
 	public String name;
 	public String id;
+	private int scheduleCount;
 	
 	public WebMember() {}
 	
@@ -15,6 +16,14 @@ public class WebMember {
 		this.name = name;
 		this.id = id;
 	}
+	
+	public WebMember(String email, String pw, String name, String id, int scheduleCount) {
+        this.email = email;
+        this.pw = pw;
+        this.name = name;
+        this.id = id;
+        this.scheduleCount = scheduleCount;
+    }
 	
 	public String getEmail() {
 		return email;
@@ -40,6 +49,13 @@ public class WebMember {
 	public void setId(String id) {
 		this.id = id;
 	}
+	public int getScheduleCount() {
+        return scheduleCount;
+    }
+
+    public void setScheduleCount(int scheduleCount) {
+        this.scheduleCount = scheduleCount;
+    }
 
 			
 }

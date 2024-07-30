@@ -24,16 +24,22 @@ String errorMsg = (String) request.getAttribute("errorMsg");
 <title>Main page</title>
 <script>
 	function goToSelect() {
-		let selectedRegion = 'busan'; // 기본값
+		let selectedRegion = 'BUSAN'; // 기본값
 		  if (document.getElementById("item1").style.border.includes("solid")) {
-		    selectedRegion = 'yangyang';
+		    selectedRegion = 'YangYang';
 		  } else if (document.getElementById("item2").style.border.includes("solid")) {
-		    selectedRegion = 'busan';
+		    selectedRegion = 'BUSAN';
 		  } else if (document.getElementById("item3").style.border.includes("solid")) {
-		    selectedRegion = 'yeosu';
+		    selectedRegion = 'YEOSU';
 		  }
 		  window.location.href = 'select.jsp?region=' + selectedRegion;
 		}
+	
+	  var startDate = document.getElementById("start").value;
+      var endDate = document.getElementById("end").value;
+      if (startDate && endDate) {
+          document.getElementById("dateForm").submit();
+      }
 </script>
 </head>
 
@@ -126,6 +132,7 @@ String errorMsg = (String) request.getAttribute("errorMsg");
 
 				<div class="search-input">
 					<div class="shadow"></div>
+
 					<div class="date-inputs">
 						<div class="date-labels">
 							<i class="travel-date">Travel Date</i>
@@ -133,20 +140,28 @@ String errorMsg = (String) request.getAttribute("errorMsg");
 						<div class="date-bar">
 							<div class="date-buttons">
 								<i class="startdate">Travel Start Date</i>
+								<form id="dateForm" action="saveDate">
 								<div class="date-box">
-									<img class="button-date-icon" alt="달력" src="image/Vector.png" /><input
-										type="date" class="date-input">
+									<img class="button-date-icon" alt="달력" src="image/Vector.png" />
+									<input
+										type="date" class="date-input" name="start">
 								</div>
+								</form>
 							</div>
 							<div class="date-buttons1">
 								<i class="enddate">Travel End Date</i>
+								<form id="dateForm" action="saveDate">
 								<div class="date-box">
-									<img class="button-date-icon" alt="달력" src="image/Vector.png" /><input
-										type="date" class="date-input">
+									<img class="button-date-icon" alt="달력" src="image/Vector.png" />
+									<input
+										type="date" class="date-input" name="end">	
 								</div>
+								</form>
+								
 							</div>
 						</div>
 					</div>
+					
 					<div class="destination-selection">
 						<div class="destination-label">
 							<i class="destination">Travel Destination</i>
@@ -188,5 +203,10 @@ String errorMsg = (String) request.getAttribute("errorMsg");
 		<section class="footer2"></section>
 	</div>
 
+
+<script>
+
+
+</script>
 </body>
 </html>

@@ -41,20 +41,18 @@ public class JoinService extends HttpServlet {
             return;
         }
         
-        // 회원 정보 저장
-        WebMember member = new WebMember();
+        WebMember member = new WebMember(name, id, email, pw, 0);
         member.setName(name);
         member.setId(id);
         member.setEmail(email);
         member.setPw(pw);
-        
+        member.setScheduleCount(0);   //  <-- default 0으로 
 
-        int result = dao.memberJoin(member);  // 회원 정보 저장
+        int result = dao.memberJoin(member);  
         
-        if (result > 0) {  // 저장 성공
-            // main.jsp로 리다이렉트하며 성공 메시지 전달
+        if (result > 0) {  
             response.sendRedirect("main.jsp?message=" + URLEncoder.encode("회원가입이 완료되었습니다.", "UTF-8"));
-        } else {  // 저장 실패
+        } else {  
             request.setAttribute("errorMsg", "회원가입에 실패했습니다.");
             request.getRequestDispatcher("register.jsp").forward(request, response);
         }

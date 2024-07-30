@@ -11,6 +11,14 @@
     height: 41px;
     flex-shrink: 0;
 }
+#emailResult{
+   position:absolute;
+   top:51%;
+   left:36%;
+   font-size:16px;
+   color:red;
+   opacity:0.8;
+}
 .agree {
     width: 180px;
     position: relative;
@@ -276,7 +284,7 @@
     height: 42px;
 }
 .login {
-    width: 118px;
+    width: 100px;
     position: relative;
     border-radius: 21px;
     background-color: #176779;

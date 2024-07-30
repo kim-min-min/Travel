@@ -27,7 +27,7 @@
 %>
 
 <script type="text/javascript">
-	alert("제거 되었습니다.");
+	alert("삭제 되었습니다.");
 	location.href = 'Basket.jsp';
 </script>
 </body>

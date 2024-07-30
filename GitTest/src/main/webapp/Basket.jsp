@@ -1,5 +1,11 @@
+<%@page import="com.aischool.model.FirstScreenDAO"%>
+<%@page import="com.aischool.model.WebMember"%>
 <%@page import="java.util.ArrayList"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+
+<% WebMember member =  (WebMember) session.getAttribute("logindata");
+
+%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -12,20 +18,38 @@
 <link rel="stylesheet" href="design/Basket.css" />
 </head>
 <body>
+<%
+	String region = (String)session.getAttribute("region");
+	String placeName = (String)session.getAttribute("placeName");
+%>
+<script type="text/javascript">
+	function func()
+	{
+		<%
+		    FirstScreenDAO dao = new FirstScreenDAO();
+			int cnt = dao.updateCount(member);
+		%>
+		location.replace('Schedule.jsp');
+	}
 
+</script>
 <div class="header">
+
     <a href="main.jsp"><img class="logo-icon" alt="" src="image/KakaoTalk_20240722_104503600.jpg"></a>
     
-    <div class="header-inner">
-        <div class="group-parent">
-            <div class="group-item">
-                <img class="group-child2" alt="" src="image/bucket2.png">
-                <img class="group-child" alt="" src="image/bucket1.png">
-            </div>
-            <div class="link1"></div>
+    <%if(member == null){%>
+        	<div class="log">
+          <a class="a1" href="login.jsp">로그인</a>
+        </div>
+        <%}else{%>
+        <div class="trip-planner">
+          <span class="navTxt"><a href="Mypage.jsp" style="color:#20303c"><u>마이페이지</u></a></span>
+          </div>
+        <div class="log">
+          <a class="a1" href="logoutService">로그아웃</a>
         </div>
         
-    </div>
+        <%} %>
     <div class="header-line"></div>
 </div>
 
@@ -35,17 +59,15 @@
     <div class="body">
         <div class="contentbox">
             <div class="title">
-                <b class="b">부산</b>
-                <b class="date">2024.08.07~2024.08.08</b>
-            </div>
-            <br><br>
-            <div class="sort-option">
-                <b class="b5">거리순</b>
-                <img class="icon-menu" alt="" src="image/menu.png">
+                
+                <b class="b"><%=region %>, <%=placeName %> 중심</b>
+                <img class="vector-icon" alt="" src="image/mark.png"><br>
+                <b class="date"></b>
             </div>
             <br>
-            <b class="location">해운대 해수욕장 근처</b>
-            <img class="vector-icon" alt="" src="image/mark.png">
+            <b class="list-title">내가 담은 여행지 목록</b>
+
+
 
             <% 
                 request.setCharacterEncoding("UTF-8");
@@ -76,17 +98,21 @@
                             
                             <input type="hidden" value="<%=latitude.get(i)%>" name="lati">
                             <input type="hidden" value="<%=longitude.get(i)%>" name="long">
-                            <span><%=arr.get(i)%></span>
-                            <input type="submit" value="제거" class="remove-button">
+                            <span style="padding-right:10px"><%=arr.get(i)%></span>
+                            <input type="submit" value="삭제하기" class="remove-button">
                         </div>
                     </form>
                 </div>
             <% } %>
         </div>
+        <button class="wrapper1" onclick="func()">일정별 장소 확정하기</button>
+        <button onclick="location.href='add.jsp'" class="back-button">장소 더 추가하기</button>
     </div>
 </div>
 
-<button onclick="location.href='add.jsp'" class="back-button">돌아가기</button>
+
+
+
 
 </body>
 </html>

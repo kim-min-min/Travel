@@ -1,12 +1,23 @@
+
+<%@page import="com.aischool.model.FirstScreenVO"%>
+<%@page import="java.util.ArrayList"%>
+<%@page import="com.aischool.model.FirstScreenDAO"%>
 <%@page import="com.aischool.model.WebMember"%>
-<%@page import="com.aischool.model.WebMemberDAO"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 
 <%
+
 WebMember member = (WebMember) session.getAttribute("logindata");
 String errorMsg = (String) request.getAttribute("errorMsg");
+
+FirstScreenDAO dao = new FirstScreenDAO();
+ArrayList<FirstScreenVO> list = dao.list(member,0);
+int Schedule_number = dao.count(member);
+
 %>
+
+
 
 <meta name="viewport" content="initial-scale=1, width=device-width">
 
@@ -74,30 +85,25 @@ String errorMsg = (String) request.getAttribute("errorMsg");
 				<b class="b">나의 일정</b>
 			</div>
 			<div class="content-box">
-				<div class="item">
-					<img class="jpg-icon" alt="" src="image/해운대.jfif"> <img
-						class="image-icon" alt="" src="image/marker.svg.svg">
-
-					<div class="button"></div>
-				</div>
-				<div class="item">
-					<div class="title-wrapper">
-						<div class="title">여행 title을 입력하세요</div>
+				<% for(int j=1 ;j<=Schedule_number; j++){ 
+				
+					list = dao.list(member, j);
+				%>
+				
+				<div class="item" id="item<%=j%>">
+					<b class="plan-title"><%=j %>번째 여행 일정</b>
+					<img class="jpg-icon" alt="" src="image/해운대.jfif"> 		
+					<img class="image-icon" alt="" src="image/marker.svg.svg">
+					<div class="button">
+					<% for(int i=0 ;i<list.size(); i++){ %>
+						<span style="padding:10px;"><%=list.get(i).getDateIndex()%>일차: <%=list.get(i).getTravelList()%></span>
+					<% } %> 	
 					</div>
-					<img class="jpg-icon1" alt="" src="image/해운대.jfif"> <img
-						class="image-icon1" alt="" src="image/marker.svg.svg">
-
-					<div class="title1">여행 title을 입력하세요</div>
-					<div class="button1"></div>
-					<div class="div1">경로 한눈에 보기</div>
+					<button class="delete" onclick="">일정삭제</button>
 				</div>
-				<div class="item">
-					<div class="title2">여행 title을 입력하세요</div>
-					<img class="jpg-icon1" alt="여행지사진" src="image/해운대.jfif"> <img
-						class="image-icon1" alt="로고" src="image/marker.svg.svg">
+				
+				<% } %> 	
 
-					<div class="button2"></div>
-				</div>
 			</div>
 		</div>
 

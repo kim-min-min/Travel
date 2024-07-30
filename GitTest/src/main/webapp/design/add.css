@@ -5,14 +5,84 @@ html,body {
     line-height: normal;
     overflow-x:hidden;
 }
+a{
+	text-decoration:none;
+	color:inherit;
+}
+.reco{
+	position:absolute;
+	top:50%;
+	right:50%;
+}
 
+.a1 {
+    text-decoration: none;
+    flex: 1;
+    line-height: 42px;
+    color: white;
+    white-space: nowrap;
+    font-size:17px;
+    text-align:center;
+}
+  .trip-planner {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-end;
+    padding: 0 0 var(--padding-3xs);
+    color: #20303c;
+    position:absolute;
+    right:10%;
+    top:50%;
+  }
+    .navTxt{
+    cursor:pointer;
+  }
+      
+  .log{
+    width: 100px;
+    height:41px;
+    border-radius: 21px;
+    background-color: #176779;
+	position:absolute;
+	top:28%;
+	right:3%;
+    box-sizing: border-box;
+    z-index: 2;
+    text-align: center;
+    font-size: var(--font-size-base);
+  }
+  
+input{
+	border:none;
+	background-color:transparent;
+}
+
+.tag{
+	border:2px #dad4d4 solid;
+	padding-right:5px;
+	font-size:14px;
+	background-color:#eceff8bd;
+}
+
+#location{
+	text-decoration:underline;
+	cursor:pointer;
+}
+#location:hover{
+	color:blue;
+	opacity:0.8;
+}
+
+#plus{
+	cursor:pointer;
+}
 .body-parent{
     margin:0;
     padding:0;
 }
 .background
 .b {
-    width: 60px;
     position: relative;
     line-height: 45px;
     display: flex;
@@ -35,7 +105,6 @@ html,body {
     top: 10px;
     left: 23px;
     display: flex;
-    flex-direction: row;
     align-items: center;
     justify-content: flex-start;
     gap: 17px;
@@ -197,23 +266,24 @@ html,body {
 }
 .parent {
     position: absolute;
-    top: 130px;
-    left: 59.91px;
-    width: 110.1px;
-    height: 37px;
+    top: 140px;
+    width: 110px;
+    left:60px;
+    height: 40px;
     color: #000;
 }
+
 .b6 {
     position: absolute;
     top: 62px;
-    left: 23px;
+    left: 10%;
     font-size: 25px;
     line-height: 45px;
     display: flex;
     color: #0f5577;
     text-align: left;
     align-items: center;
-    width: 400px;
+    width: 500px;
     height: 45px;
 }
 .vector-icon {
@@ -223,7 +293,7 @@ html,body {
     top: 8.79%;
     right: 45.92%;
     bottom: 87.08%;
-    left: 49.7%;
+    left: 4%;
     max-width: 100%;
     overflow: hidden;
     max-height: 100%;
@@ -291,20 +361,19 @@ html,body {
     display: flex;
     align-items: center;
     height: 24px;
-    flex-shrink: 0;
-	width:400px;
+	width:470px;
 }
 .place-info {
     position: absolute;
     top: 12px;
     left: 168px;
-    width: 300px;
+    width: 600px;
     height: 110px;
     display: flex;
     flex-direction: column;
     align-items: flex-start;
     justify-content: flex-start;
-    gap: 5px;
+    gap: 8px;
 }
 
 .plus {
@@ -328,52 +397,50 @@ html,body {
     position: absolute;
     top: 0px;
     left: 26px;
-    width: 430px;
+    width: 550px;
     height: 110px;
-    overflow: hidden;
     text-align: left;
+    border-bottom:1px lightgray solid;
 }
 
 .content2 {
     position: absolute;
     top: 110px;
     left: 26px;
-    width: 433px;
-    height: 100px;
-    overflow: hidden;
+    width: 550px;
+    height: 110px;
     color: #b4b4b4;
+    border-bottom:1px lightgray solid;
 }
 .content3 {
     position: absolute;
     top: 220px;
     left: 26px;
-    width: 433px;
-    height: 135px;
-    overflow: hidden;
+    width: 550px;
+    height: 110px;
+    border-bottom:1px lightgray solid;
 }
 .content4 {
     position: absolute;
     top: 330px;
     left: 26px;
-    width: 433px;
-    height: 135px;
-    overflow: hidden;
+    width: 550px;
+    height: 110px;
+    border-bottom:1px lightgray solid;
 }
 .content5 {
     position: absolute;
     top: 440px;
     left: 26px;
-    width: 433px;
-    height: 135px;
-    overflow: hidden;
+    width: 550px;
+    height: 110px;
 }
 .content6 {
     position: absolute;
     top: 550px;
     left: 26px;
-    width: 433px;
-    height: 135px;
-    overflow: hidden;
+    width: 550px;
+    height: 110px;
 }
 
 
@@ -421,9 +488,8 @@ html,body {
     position: absolute;
     top: 200px;
     left: 17px;
-    width: 476px;
+    width: 600px;
     height: 600px;
-    overflow: hidden;
     color: #323329;
 }
 
@@ -446,7 +512,7 @@ html,body {
 }
 .background {
     position: absolute;
-    width: calc(100% - 937px);
+    width: calc(100% - 850px);
     top: 11px;
     right: 922px;
     left: 15px;
@@ -460,15 +526,11 @@ html,body {
 .map {
     position: absolute;
     top: 17%;
-    left: 40%;
-    width: 52%;
-    height: 68%;
-
+    left: 50%;
     padding: 10px;
-    box-sizing: border-box;
-    border-color: #446699;
-    border:1px;
     border-radius: 10%;
+    overflow:hidden;
+    background: url(&quot;http://t1.daumcdn.net/mapjsapi/images/bg_tile.png&quot;);
 }
 .body {
     position: absolute;
@@ -504,13 +566,10 @@ html,body {
 }
 .vector-parent {
     position: absolute;
-    top: 90%;
-    left: 5%;
+    top: 19%;
+    left: 500px;
     width: 119px;
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: space-between;
+    
 }
 .b13 {
     width: 129px;
@@ -527,8 +586,15 @@ html,body {
     font-size:19px;
 }
 .wrapper1 {
-    width: 132px;
-
+	border:none;
+	padding:10px 15px;
+	background-color:#176779;
+	color:white;
+	cursor:pointer;
+	font-size:15px;
+	position: absolute;
+    top: 87%;
+    left: 500px;
 }
 .vector-icon3 {
     width: 31px;
@@ -539,13 +605,7 @@ html,body {
 .frame-parent {
     position: absolute;
     top: 90%;
-    right: 7%;
-    display: flex;
-    flex-direction: row;
-    align-items: flex-end;
-    justify-content: flex-start;
-    gap: 5px;
-    font-size: 20px;
+    left: 37%;
 }
 .morebtnpng-icon {
     position: absolute;
@@ -559,8 +619,11 @@ html,body {
 }
 .more{
     cursor: pointer;
-    background-color: transparent;
-    border:none;
+    border:1px lightgray solid;
+	border-radius: 5%;
+	padding:5px 10px;
+	background-color:transparent;
+	
 }
 .div3 {
     width: 66px;
@@ -653,19 +716,7 @@ html,body {
     position: relative;
     height: 57px;
 }
-.header-inner {
-    position: absolute;
-    top: 10px;
-    right:9%;
-    width: 68px;
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    justify-content: flex-start;
-    padding: 10px;
-    box-sizing: border-box;
-    font-size: 11px;
-}
+
 .b14 {
     position: absolute;
     top: 50px;
@@ -681,18 +732,8 @@ html,body {
     height: 24px;
 }
 .b15 {
-    position: absolute;
-    top: 50px;
-    right:23%;
-    text-decoration: underline;
-    line-height: 24px;
-    display: flex;
-    font-family: 'Noto Sans KR';
-    color: rgba(39, 45, 55, 0.5);
-    align-items: center;
-    justify-content: center;
-    width: 151px;
-    height: 24px;
+    color:inherit;
+    text-decoration:none;
 }
 .logo-icon {
     position: absolute;
@@ -713,7 +754,6 @@ html,body {
     overflow: hidden;
     color: #fff;
     font-family: Arial;
-    
     display:flex;
     justify-content: space-between;
 }

@@ -55,7 +55,7 @@ public class WebMemberDAO {
 		int cnt = 0;
 
 		try {
-			String sql = "INSERT INTO USERS VALUES(?,?,?,?)";
+			String sql = "INSERT INTO USERS (EMAIL, PW, NAME, ID, SCHEDULE_COUNT) VALUES(?,?,?,?,0)";
 			pst = conn.prepareStatement(sql);
 			pst.setString(1, member.getEmail());
 			pst.setString(2, member.getPw());

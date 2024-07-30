@@ -1,11 +1,15 @@
-<%@ page import="com.select.place_info" %>
+
+<%@page import="com.select.place_info"%>
+<%@page import="com.select.placeDAO"%>
 <%@ page import="java.util.ArrayList" %>
-<%@ page import="com.select.placeDAO" %>
+
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 
 <%
+
 String placeName = request.getParameter("placeName");
 String region = request.getParameter("region");
+
 
 // 디버깅을 위해 파라미터 값을 로그로 출력
 System.out.println("Received placeName: " + placeName);
@@ -33,7 +37,12 @@ if (pl_info != null) {
 <link rel="stylesheet" href="design/popup.css" />
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500&display=swap" />
 <script type="text/javascript">
-    function selectPlace() {
+    function selectPlace() {   	
+    	<%
+    		session.setAttribute("region", region);
+    		session.setAttribute("placeName", placeName);  
+    	%>
+
         if (window.opener) {
             window.opener.location.href = 'add.jsp';
             window.close();

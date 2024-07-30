@@ -3,9 +3,6 @@ package com.aischool.model;
 
 public class FirstScreenVO {
 	
-	private String id;
-	private String pw;
-	private String name;
 	private String email;
 	private String locationName;
 	private String latitude;
@@ -15,21 +12,14 @@ public class FirstScreenVO {
 	private String phone;
 	private String img;
 	private String tag;
-
-	
-
+	private String TravelList;
+	private int DateIndex;
+	private int ScheduleIndex;
 	
 
 	public FirstScreenVO() {
 		
 	}
-	public FirstScreenVO(String id, String pw) {
-		this.id = id;
-		this.pw = pw;
-	}
-
-
-
 
 	public FirstScreenVO(String locationName, String latitude, String longitude) {
 		this.locationName = locationName;
@@ -47,26 +37,20 @@ public class FirstScreenVO {
 		this.tag=tag;
 		
 	}
-	public String getId() {
-		return id;
-	}
-	public void setId(String id) {
-		this.id = id;
-	}
 	
-	public String getPw() {
-		return pw;
-	}
-	public void setPw(String pw) {
-		this.pw = pw;
-	}
 	
-	public String getName() {
-		return name;
+	public FirstScreenVO(String TravelList, int DateIndex, int ScheduleIndex) {
+		this.TravelList = TravelList;
+		this.DateIndex= DateIndex;
+		this.ScheduleIndex= ScheduleIndex;
 	}
-	public void setName(String name) {
-		this.name = name;
+
+	
+	public FirstScreenVO(String latitude, String longitude) {
+		this.latitude= latitude;
+		this.longitude= longitude;
 	}
+
 	public String getEmail() {
 		return email;
 	}
@@ -124,6 +108,25 @@ public class FirstScreenVO {
 	public void setTag(String tag) {
 		this.tag = tag;
 	}
+	public String getTravelList() {
+		return TravelList;
+	}
+	public String setTravelList(String travelList) {
+		return TravelList;
+	}
+	public int getDateIndex() {
+		return DateIndex;
+	}
+	public int setDateIndex(int dateIndex) {
+		return DateIndex;
+	}
+	public void setScheduleIndex(int scheduleIndex) {
+		this.ScheduleIndex = scheduleIndex;
+	}
+	public int getScheduleIndex() {
+		return ScheduleIndex;
+	}
+
 
 
 	

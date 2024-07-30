@@ -45,7 +45,7 @@
 %>
 
 <script type="text/javascript">
-	alert("<%=locations%>가 장바구니에 추가 되었습니다.");
+	alert("<%=locations%>(이)가 장바구니에 추가 되었습니다.");
 	history.go(-1);
 </script>
 

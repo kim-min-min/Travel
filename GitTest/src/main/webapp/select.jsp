@@ -10,6 +10,7 @@ placeDAO dao = new placeDAO();
 ArrayList<place_info> places = dao.getPlacesByRegion(region);
 request.setAttribute("places", places);
 WebMember member =  (WebMember) session.getAttribute("logindata");
+
 %>
 
 <!DOCTYPE html>
@@ -22,22 +23,22 @@ WebMember member =  (WebMember) session.getAttribute("logindata");
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Arial:wght@400&display=swap" />
     <%
     if (places == null || places.isEmpty()) {
-        response.sendRedirect("getPlace?region=busan"); // 기본값으로 'busan' 사용
+        response.sendRedirect("getPlace?region=BUSAN"); // 기본값으로 'busan' 사용
         return;
     }
     %>
      <style>
-	    <% if (region.equals("yeosu")){ %>
-			.item-link2{border: 3px lightgray solid;}
+	    <% if (region.equals("YEOSU")){ %>
+			.item-link2{border: 3px #373737a6 solid;}
 			.item-link{border: none;}
 			.item-link1{border: none;}
 
-    	<%}else if (region.equals("yangyang")){%>
-			.item-link1{border: 3px lightgray solid;}
+    	<%}else if (region.equals("YangYang")){%>
+			.item-link1{border: 3px #373737a6 solid;}
 			.item-link{border: none;}
 			.item-link2{border: none;}
     	<%}else{%>
-			.item-link{border: 3px lightgray solid;}
+			.item-link{border: 3px #373737a6 solid;}
 			.item-link1{border: none;}
 			.item-link2{border: none;}
     	<%}%>
@@ -111,21 +112,21 @@ WebMember member =  (WebMember) session.getAttribute("logindata");
         <img class="image-1-icon" alt="" src="image/main_img1.jpg">
             <div class="list">
         <div class="item-link">
-            <a href="getPlace?region=busan">
+            <a href="getPlace?region=BUSAN">
                 <div class="frame">
                     <div class="div10">부 산</div>
                 </div>
             </a>
         </div>
         <div class="item-link1">
-            <a href="getPlace?region=yangyang">
+            <a href="getPlace?region=YangYang">
                 <div class="frame-div">
                     <div class="div11">양 양</div>
                 </div>
             </a>
         </div>
         <div class="item-link2">
-                <a href="getPlace?region=yeosu">
+                <a href="getPlace?region=YEOSU">
                     <div class="wrapper1">
                         <div class="div10">여 수</div>
                     </div>

@@ -15,7 +15,8 @@ public class FirstScreenVO {
 	private String TravelList;
 	private int DateIndex;
 	private int ScheduleIndex;
-	
+	private String url;
+	private String comment;
 
 	public FirstScreenVO() {
 		
@@ -28,14 +29,15 @@ public class FirstScreenVO {
 	}
 	
 	public FirstScreenVO(String locationName, String latitude, String longitude, String img, String address,
-			String tag) {
+			String tag, String url, String comment) {
 		this.locationName = locationName;
 		this.latitude= latitude;
 		this.longitude= longitude;
 		this.img=img;
 		this.address=address;
 		this.tag=tag;
-		
+		this.url=url;
+		this.comment=comment;
 	}
 	
 	
@@ -127,8 +129,21 @@ public class FirstScreenVO {
 		return ScheduleIndex;
 	}
 
-
-
+	public void setUrl(String url) {
+		this.url=url;
+	}
+	
+	public String getUrl() {
+		return url;
+	}
+	
+	public void setComment(String comment) {
+		this.comment=comment;
+	}
+	
+	public String getComment() {
+		return comment;
+	}
 	
 }
 

@@ -9,6 +9,14 @@ a{
 	text-decoration:none;
 	color:inherit;
 }
+
+.comment{
+	display: inline-block;
+    max-width: 400px;
+    white-space:nowrap;
+    overflow:hidden;
+    text-overflow:ellipsis;	
+}
 .reco{
 	position:absolute;
 	top:50%;
@@ -619,11 +627,22 @@ input{
 }
 .more{
     cursor: pointer;
-    border:1px lightgray solid;
-	border-radius: 5%;
-	padding:5px 10px;
-	background-color:transparent;
-	
+
+	border-radius: 5px;
+	padding:10px 10px;
+	background-color:#396279;
+	position:relative;
+	right:450px;
+	width:160px;
+	font-size:15px;
+	font-weight:600;
+    color: #fff;
+    border: none;
+	bottom:10px;
+}
+
+.more:hover{
+	background-color:#244e65;
 }
 .div3 {
     width: 66px;

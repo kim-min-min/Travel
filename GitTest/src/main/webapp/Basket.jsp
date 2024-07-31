@@ -21,18 +21,9 @@
 <%
 	String region = (String)session.getAttribute("region");
 	String placeName = (String)session.getAttribute("placeName");
-%>
-<script type="text/javascript">
-	function func()
-	{
-		<%
-		    FirstScreenDAO dao = new FirstScreenDAO();
-			int cnt = dao.updateCount(member);
-		%>
-		location.replace('Schedule.jsp');
-	}
 
-</script>
+%>
+
 <div class="header">
 
     <a href="main.jsp"><img class="logo-icon" alt="" src="image/KakaoTalk_20240722_104503600.jpg"></a>
@@ -67,8 +58,6 @@
             <br>
             <b class="list-title">내가 담은 여행지 목록</b>
 
-
-
             <% 
                 request.setCharacterEncoding("UTF-8");
                 ArrayList<String> arr = (ArrayList)session.getAttribute("locationList");
@@ -94,8 +83,7 @@
                 <div class="content">
                     <form action="DeleteList.jsp" method="post">
                         <div class="place-info">
-                            <input type="hidden" value="<%=arr.get(i)%>" name="text">
-                            
+                            <input type="hidden" value="<%=arr.get(i)%>" name="text">                    
                             <input type="hidden" value="<%=latitude.get(i)%>" name="lati">
                             <input type="hidden" value="<%=longitude.get(i)%>" name="long">
                             <span style="padding-right:10px"><%=arr.get(i)%></span>
@@ -104,13 +92,22 @@
                     </form>
                 </div>
             <% } %>
-        </div>
-        <button class="wrapper1" onclick="func()">일정별 장소 확정하기</button>
+        </div>				
+      <button class="wrapper1" onclick="if(checkLocationList()) location.href='Basket2.jsp'">일정별 장소 확정하기</button>
         <button onclick="location.href='add.jsp'" class="back-button">장소 더 추가하기</button>
     </div>
 </div>
 
-
+<script>
+function checkLocationList() {
+    var locationListSize = <%= arr.size() %>;
+    if (locationListSize === 0) {
+        alert("장바구니가 비어있습니다.");
+        return false;
+    }
+    return true;
+}
+</script>
 
 
 

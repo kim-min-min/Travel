@@ -89,9 +89,7 @@
                          <b class="date"></b>                              
                     </div>   
                     
-                    <div class="parent">
-                     <b class="b5">거리순 </b>
-                         <img class="icon-menu" alt="" src="image/menu.png">
+
                     
 			  		<%-- 	<form action="placeRecommender" method="get">
 				        <input type="hidden" name="latitude" value="<%=Double.parseDouble(list2.get(0).getLatitude())%>"><br>
@@ -102,14 +100,14 @@
 							for (String place : recommendedPlaces) {%>
 							    <span class=result><%=place %></span>
 							    <%}}%> --%>
-                    </div>
+
                      <img class="vector-icon" alt="" src="image/mark.png">
                     <b class="b6"><%=placeName%> 근처 추천 여행지</b>    
 							    
          <div class="vector-parent">
                
                <button class="more" onclick="func2()">
-               <img src="image/moreBtn.png.png" alt="" style="height:12px;"> 추천 더보기</button>
+               다른 추천 장소 보기</button>
           </div>
                     
                     <div class="contentbox">
@@ -117,7 +115,7 @@
                        <div class="content<%=i+1%>">
                         <form action="AddList.jsp" >
                            <div class="img">
-                                 <img src="<%=list.get(i).getImg()%>" width="133" height="85">
+                                 <a href="<%=list.get(i).getUrl() %>" target="_blank"><img src="<%=list.get(i).getImg()%>" width="133" height="85"></a>
                               </div>
                               <div class="place-info">
                                  <input type="hidden" value="<%=list.get(i).getLatitude()%>" name="lati">
@@ -125,7 +123,7 @@
                                    <b id="mapinfo<%=i%>">[<%=list.get(i).getTag()%>] <%=list.get(i).getLocationName()%> 
                                     
                                     <input id="location" type="button" onclick="func(<%=latitude[i]%>,<%=longitude[i]%>,'<%=list.get(i).getLocationName() %>')" value="위치보기"></b>
-                                   <span>주소: <%=list.get(i).getAddress()%></span>
+                                   <span class="comment"><%=list.get(i).getComment()%></span>
                                    <div class="div"><div class="tag"><input id="plus" type="submit" value="<%=list.get(i).getLocationName()%>" name="place">담기 +</div></div>
 
                               </div>
@@ -156,7 +154,7 @@
    var mapContainer = document.getElementById('map'), // 지도를 표시할 div 
    mapOption = { 
        center: new kakao.maps.LatLng(<%=latitude[0]%>, <%=longitude[0]%>), // 지도의 중심좌표
-       level: 9 // 지도의 확대 레벨
+       level: 6 // 지도의 확대 레벨
    };
    
    var map = new kakao.maps.Map(mapContainer, mapOption); // 지도를 생성합니다

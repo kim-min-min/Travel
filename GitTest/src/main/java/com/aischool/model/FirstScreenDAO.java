@@ -134,8 +134,8 @@ public class FirstScreenDAO {
 
 		try {
 			
-			String sql= "SELECT PLACE_NAME, LATITUDE, LONGITUDE, PLACE_IMG, ADDRESS, PLACE_TAG "
-					+ "FROM(SELECT ROWNUM RN, PLACE_NAME, LATITUDE, LONGITUDE, PLACE_IMG, ADDRESS, PLACE_TAG FROM " + region + " WHERE ROWNUM<= (? * 5))"
+			String sql= "SELECT PLACE_NAME, LATITUDE, LONGITUDE, PLACE_IMG, ADDRESS, PLACE_TAG, PLACE_URL, PLACE_COMMENT "
+					+ "FROM(SELECT ROWNUM RN, PLACE_NAME, LATITUDE, LONGITUDE, PLACE_IMG, ADDRESS, PLACE_TAG, PLACE_URL, PLACE_COMMENT FROM " + region + " WHERE ROWNUM<= (? * 5))"
 					+ "WHERE RN > (?-1) * 5";
 
 			psmt = conn.prepareStatement(sql);
@@ -151,8 +151,10 @@ public class FirstScreenDAO {
 				String img = rs.getString(4);
 				String address = rs.getString(5);
 				String tag = rs.getString(6);
+				String url = rs.getString(7);
+				String comment = rs.getString(8);
 
-				FirstScreenVO vo = new FirstScreenVO(locationName, latitude, longitude, img, address, tag);
+				FirstScreenVO vo = new FirstScreenVO(locationName, latitude, longitude, img, address, tag, url, comment);
 
 				list.add(vo);
 			}

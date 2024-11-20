@@ -1,6 +1,6 @@
 # 📎 집가고싶다..(팀명: 힘들조)
-![image](https://user-images.githubusercontent.com/25995055/178401309-2a2ffc86-ef45-439b-bfd8-6978312100bc.png)
-<img src="https://img.shields.io/badge/Kotlin-7F52FF?style=for-the-badge&logo=Kotlin&logoColor=white"/>
+![여행4](https://github.com/user-attachments/assets/1fdb9408-d4e5-47bd-ab56-8842408c7fb1)
+
 
 ## 👀 서비스 소개
 * 서비스명:  꽃 개화 시기별 우리 지역 근처 데이트/드라이브 추천 장소 및 꽃 축제 추천 
